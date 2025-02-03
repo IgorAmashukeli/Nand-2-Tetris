@@ -1,0 +1,13 @@
+//calculates the output of the ALU
+//first calculates fres or notfres, then outputs out, if it is negative, if it is zero
+CHIP AluOutput {
+    IN fres[16], notfres[16], no;
+    OUT  out[16], zr, ng;
+    PARTS:
+    Mux16(a=fres, b=notfres, sel=no, out=out, out[15]=ng, out[0..7]=notzr1, out[8..15]=notzr2);
+
+    Or8Way(in=notzr1, out=notzrfirstres);
+    Or8Way(in=notzr2, out=notzrsecondres);
+    Or(a=notzrfirstres, b=notzrsecondres, out=notzr);
+    Not(in=notzr, out=zr);
+}

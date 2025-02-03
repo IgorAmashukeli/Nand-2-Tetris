@@ -1,0 +1,8 @@
+CHIP MemoryOutput {
+    IN outram[16], outscreen[16], outkeyboard[16], isram, isscreen, iskeyboard;
+    OUT memoryout[16];
+    PARTS:
+
+    Mux16(a=outram, b=outscreen, sel=isscreen, out=outramscreen);
+    Mux16(a=outramscreen, b=outkeyboard, sel=iskeyboard, out=memoryout);
+}

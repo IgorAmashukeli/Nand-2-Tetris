@@ -1,0 +1,18 @@
+CHIP ScreenShift {
+    IN address[15];
+    OUT addressshift[13];
+    PARTS:
+    Wire(in=address[12], out=addressshift[12]);
+    Wire(in=address[11], out=addressshift[11]);
+    Wire(in=address[10], out=addressshift[10]);
+    Wire(in=address[9], out=addressshift[9]);
+    Wire(in=address[8], out=addressshift[8]);
+    Wire(in=address[7], out=addressshift[7]);
+    Wire(in=address[6], out=addressshift[6]);
+    Wire(in=address[5], out=addressshift[5]);
+    Wire(in=address[4], out=addressshift[4]);
+    Wire(in=address[3], out=addressshift[3]);
+    Wire(in=address[2], out=addressshift[2]);
+    Wire(in=address[1], out=addressshift[1]);
+    Wire(in=address[0], out=addressshift[0]);
+}

@@ -1,0 +1,13 @@
+//if op-code = i = 0 => A instruction => we anyway load the register
+//if op-code = i = 1 => C instruction =>
+// we load the register with value from destination, calculated in this C instruction
+// I understand that clocks are setted in a such way, the cycle ends after the value of A instruction
+// gets to the A register, so there will be no trash in the end of C instruction with d1 = 1
+// if d1 = 0 and it is C instruction, then there is no way it will update A value => A value will be previous
+CHIP Aload {
+    IN d1, i;
+    OUT aload;
+    PARTS:
+    True(in=d1, out=one);
+    Mux(a=one, b=d1, sel=i, out=aload);
+}

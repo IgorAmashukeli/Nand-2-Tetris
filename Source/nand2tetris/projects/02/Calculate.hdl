@@ -1,0 +1,12 @@
+//calculates function from x and y, according to f flag and outputs f and not f
+CHIP Calculate {
+    IN xres[16], yres[16], f;
+    OUT fres[16], notfres[16];
+    PARTS:
+    Add16(a=xres, b=yres, out=sum);
+    And16(a=xres, b=yres, out=and);
+
+    Mux16(a=and, b=sum, sel=f, out=fres, out=fresin);
+
+    Not16(in=fresin, out=notfres);
+}

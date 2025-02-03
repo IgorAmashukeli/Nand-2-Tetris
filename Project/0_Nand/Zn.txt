@@ -1,0 +1,14 @@
+Zink:
+
+1) Take zink sulfide
+
+2) Get zink oxide
+
+2 Zn - S + 3 O_2 → 2 Zn - O + 2 S - O_2
+
+
+3) Get zink
+
+2 Zn - O + C → Zn + C - O
+
+We created Zink (Zn)!

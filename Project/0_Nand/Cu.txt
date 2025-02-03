@@ -1,0 +1,15 @@
+Copper:
+
+1) Take copper sulfide CuS
+
+2) Get copper oxide
+
+2 Cu_2 - S + 3 O_2 -> 2 Cu_2 - O + 2 S - O_2
+
+
+
+3) Get copper
+
+2 Cu_2 - O + Cu_2 - S -> 6 Cu + 2 S - O_2
+
+We created copper (Cu)!

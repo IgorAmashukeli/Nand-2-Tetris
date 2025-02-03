@@ -1,0 +1,12 @@
+0) MinusOne.hdl
+1) One.hdl
+2) Wire16.hdl
+3) HalfAdder.hdl
+4) FullAdder.hdl
+5) Add16.hdl
+6) Inc16.hdl
+7) Zero.hdl
+8) ZN.hdl
+9) Calculate.hdl
+10) AluOutput.hdl
+11) ALU.hdl

@@ -1,0 +1,92 @@
+Semiconductors:
+
+1) Let's connect Si (in normal temperature and light) to "+" and "-" in electric suit.
+
+Nothing will happen. All electrons are together with their atoms.
+
+
+2) Now let's take Si lattice and insert Phosphorus inside.
+Phosphorus has valency of 5. The last electron has no pair.
+We have free electron. This is called N - semiconductor
+
+
+   |  |          |  |        |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  | e       |  |
+   -    --- e ---    --- e ---   -
+    Si+           P          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |   |        |  |
+
+
+3) Now let's take Si lattice and insert Boron inside.
+Boron has valency of 3. One of the pairs has no electron.
+
+
+   |  |          |  |        |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    ---  ---   -
+    Si+           B          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |   |        |  |
+
+
+ Now one of the electrons from Si connection goes to the place:
+
+      |  |          |  |        |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e            e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+           B          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |   |        |  |
+
+But now there is hole between Silicon. We have a hole.
+This is called P - semiconductor
+
+
+We created N and P semiconductors
+

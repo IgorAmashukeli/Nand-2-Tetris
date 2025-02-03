@@ -1,0 +1,7 @@
+CHIP Wire16 {
+    IN in[16];
+    OUT out[16];
+    PARTS:
+    MinusOne(in=in, out=allone);
+    And16(a=in, b=allone, out=out);
+}

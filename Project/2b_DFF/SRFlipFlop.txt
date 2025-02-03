@@ -1,0 +1,108 @@
+Let's take SRLatch.
+Let's take Clock.
+
+Let's create this circuit:
+
+  S         ___  S*     ___
+ ----------|   \ ------|   \____________ Q
+        |--|___/     |-|___/      |
+        |            |_________   |
+        |                      |  |
+        |                      |  |
+  CLK---|             _______  | _|
+        |            |         | 
+        |            |         |
+        |            |  ___    |
+        |   ___  Q*  |-|   \___|________ neg Q
+  R     |--|   \ ----- |___/
+ ----------|___/
+
+
+From SR Latch we know this:
+
+
+S*  R*| Q  neg Q
+0   0 | //NOT used
+0   1 | 1   0
+1   0 | 0   1
+1   1 | previous values, if changed from (0 1 or 1 0) to (1 1)
+
+Suppose, now the clock is low. What will happen?
+
+S* = S NAND CLK = S NAND 0 = 1
+R* = R NAND CLK = Q NAND 0 = 1
+
+S* = 1, R* = 1, now we have the previous value of Q and neg Q
+As we know, that each time unit t + 1 starts from low value.
+That means, that values at the start of the time unit t + 1 is the same as the values after the end of t unit.
+That means, nothing is happening at falling edge of the time cycle.
+Everything is happeninng at the leading edge and high value of the cycle.
+
+Now, let's suppose, CLK = 1 => S NAND CLK = S NAND 1 = NOT S; R NAND CLK = R NAND 1 = NOT R
+That means, when the value of clock is high, the output completely depends on S and R.
+That means, when the value of clock is high, we can manipulate the result of the Q and neg Q values
+by changing S and R.
+
+Cause the CLK creates the S* = neg S, R* = neg R,
+we can paste SR latch table with values for inverted inputs for S and R:
+
+
+CLK S   R | Q  neg Q
+0   x   x | previous values, when S was not equal to R and CLK was 1
+1   0   0 | previous values, when S was not equal to R and CLK was 1
+1   0   1 | 0   1
+1   1   0 | 1   0
+1   1   1 | previous values, when S was not equal to R
+
+
+As we can see, if CLK is 0 or S* = R* = 1, Q and neg Q stores the previous value
+Otherwise, if S = 0, R = 1 => Q = 0, neg Q = 1
+           if S = 1, R = 0 => Q = 1, neg Q = 0
+
+Cause we are dealing with time, Q can have different value, depending on a time
+
+
+
+CLK   S   R | Q_{t + 1}
+0     x   x | Q_{i}, i - is a previous unit high edge (CLK was 1), when input was 0 and 1
+1     0   0 | Q_{i},
+1     0   1 | 0
+1     1   0 | 1
+1     1   1 | not used
+
+
+Assume, CLK = 1
+Now let's build characteristic table for the S, R, Q_{t}, Q_{t + 1}
+
+
+Q_{i}  S    R | Q_{t + 1}
+0      0    0   0
+0      0    1   0
+0      1    0   1
+0      1    1   not used
+1      0    0   1
+1      0    1   0
+1      1    0   1
+1      1    1   not used
+
+
+Now let's check what should be the values of S and R for different Q_{i} and Q_{t + 1}
+
+Q_{i}  Q_{t + 1} | S  R
+0       0        | 0  x
+0       1        | 1  0
+1       0        | 0  1
+1       1        | x  0
+
+We created our first SR Flip Flop
+
+
+
+
+
+
+
+
+
+
+                 

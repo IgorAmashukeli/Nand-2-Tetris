@@ -1,0 +1,122 @@
+NAND
+
+0 represents no flow
+1 represents flow
+
+1) Let's take NMOS and PMOS transistors
+
+NMOS:
+          |     Terminal 1 = out
+        __|
+       |
+Gate --|
+       |_
+         |
+         |
+       -----
+        ---    Terminal 2 = ground
+         -
+
+If Gate is 0, then there is no flow from out to the ground
+If Gate is 1, then there is a flow from out to the ground
+
+PMOS:
+
+          ^
+          |     Terminal 1 = voltage
+        __|
+       |
+Gate o-|
+       |_
+         |
+         |
+            Terminal 2 = out
+         
+If Gate is 0, then there is a flow from voltage to the out
+If Gate is 1, then there is no flow from voltafe to the out
+
+
+2) Now let's look at that scheme:
+
+                                        voltage
+                                          ^
+    ___________________________           |
+    |                          |        __|
+    |                          |       |
+    |                voltage   | - o - | PMOS
+    |                  ^               |_
+    |                  |                 |
+    |                __|                 |
+    |               |                    |
+A - |---------- o - |  PMOS              |
+    |     |         |_                   |
+B - |     |           |                  |
+    |     |           |__________________|
+    |     |                     |
+    |     |                     |_________________ C
+    |     |                     |
+    |     |                     |
+    |     |                     |
+    |     |                  ___|
+    |     |                 |
+    |     |---------------  | NMOS
+    |                       |___
+    |                           |
+    |                           |
+    |                           |
+    |                       ____
+    |                       |
+    |---------------------  | NMOS
+                            |___
+                               |
+                               |
+                               |
+                             -----
+                              ---
+                               - ground  
+
+
+3) Let's compute C, depending on A and B:
+
+- A = 0, B = 0
+  There is a flow through both PMOS, and there is no flow in both NMOS
+  C is connected through both of the PMOS to the voltage and not connected to the ground because of fully open path through NMOS
+  C is connected to voltage, but no to the ground
+  C = 1
+
+
+- A = 0, B = 1
+  There is a flow at least through one of the PMOS and there at most one NMOS without flow
+  C is connected through one of the PMOS to the voltage and not connected to the ground because of partly open path through NMOS
+  C is again connected to volage, but no to the ground
+  C = 1
+
+
+- A = 1, B = 0
+  There is a flow at least through one (now another) of the PMOS and there at most one NMOS (now another) without flow
+  C is connected through one of the PMOS to the voltage and not connected to the ground because of partly open path through NMOS
+  C is again connected to volage, but no to the ground
+  C = 1
+
+
+- A = 1, B = 1
+  There is no flow through the PMOS and there is a flow through all of the NMOS
+  C is not connected to the voltage through any PMOS, but is connected to the ground because of fully closed path through NMOS
+  C is not connected to the volage, but connected to the ground
+  C = 0
+
+  These scheme creates NAND function
+
+       _______
+  A __|       \
+    __|  NAND  |o ------ C
+  B   |_______/
+
+
+We built our NAND gate! (in theory)
+In practice we are using software simulation.
+We don't have transistors => we will use builtin version of NAND.
+
+
+
+

@@ -1,0 +1,28 @@
+Electricity:
+
+1) Take copper and create wire
+
+2) Take water
+
+3) Take sulfuric adic, add to water - now we can 
+
+4) Put Cu and Zn to different part of sulfuric acid
+
+|    Zn    Cu    |
+|                |
+|                |
+|                |
+|    H_2 - O     |
+|  H_2 - S - O_4 |
+------------------
+
+5) Zink is ion-active. It starts to give ions: 2 Zn -> Zn_2+ + 2e-.
+ There are a lot of electrons in Cu. It is called Anode.
+
+6) Cu is not ion-active. There are few electrons in Cu. It is called Cathode.
+
+7) Now let's connect Zn and Cu with copper wire.
+
+8) Electrons will move from Zn, which is "-" towards Cu, which is "+"
+
+9) We created owr own battery, flow and power supply!

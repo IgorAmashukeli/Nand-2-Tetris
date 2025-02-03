@@ -1,0 +1,7 @@
+//if op-code = 1 => the calculation is based on the
+CHIP Mux2load {
+    IN i, a;
+    OUT mux2sel;
+    PARTS:
+    And(a=i, b=a, out=mux2sel);
+}

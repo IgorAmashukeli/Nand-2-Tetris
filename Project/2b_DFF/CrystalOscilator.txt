@@ -1,0 +1,61 @@
+Let's take Quartz crystal.
+Let's take resistor, 2 capacitors, inverter.
+
+Let's create this circuit:
+
+    ^ <--- voltage          
+    | 
+    |       _____                                                      resistor
+    |______|     |_______ <--- resistor                                 _____
+    |      |_____|       |                                     ________|     |_______
+    |                    |               NOT:    resistor     |        |_____|      |
+    |        NOT:        |                      _____         |                     |
+    |_________|\_________________________|\____|     |________|____|\______|\_______|____ output
+    |         |/         |               |/    |_____|             |/      |/
+    |                    |                                        NOT      NOT
+    |        __          |
+    |_____| |  | |_______| <--- quartz crystal
+    |     | |__| |       |
+    |                    |
+    __                  __ 
+    __                  __ <--- two capacitors
+    |                    |
+    |____________________|
+                         |
+                       ----- 
+                        ---  <--- ground
+                         -
+
+Quartz crystal will generate oscillations.
+However they tend to attenuation.
+To prevent this from happening we will add amplifier to "save" quartz from attenuation.
+This amplifier can be for example CMOS NOT inventor, that consists of transisors.
+Transistors are not also depletion elements, but also enhancing.
+Connecting quartz crystal to NOT gate will increase amplifier.
+However, there is a problem. The inverter will create 180 degree phase shift.
+To revert to 360 degrees we add 2 capacitors.
+The resistor is used to stabilize feedback.
+
+The crystal, at a frequency just slightly above its "series resonant" frequency, looks like an inductor of a certain value.
+That inductor, resonating with the two shunt capacitors, winds up acting like a 180 degree phase inverter.
+By connecting a transistor stage (common emitter mode) driven by the crystal output and "feeding back" to the input side of the crystal,
+the transistor both amplifies the signal and adds its own 180 degree phase shift for a total shift of 360 degrees.
+
+In the output we create two inverters to create positive gain (amplify even more).
+For that we create a feedback loop with a resistor to stablize.
+(The third inverter connects to the output of the second inverter and returns to its own input via resistors and capacitors,
+ forming a so-called Schmitt trigger with positive feedback.
+ Feedback allows you to keep the vibrations at the quartz resonant frequency and form a stable and accurate signal with the desired frequency.)
+
+The second inverter is used as a buffer element.
+It receives the signal from the first inverter (which is connected to the crystal)
+and provides isolation between the crystal and the Schmitt trigger so as not to affect the sensitive frequency of quartz.
+
+We also create a resistor aftet the inverter to have stability.
+
+Because, of the discrete nature of logic NOT gate inverter,
+we will get a very stable square wave, instead of sinusoid, which have high, low value,
+constant amplitude and frequency, thus discreting the continuos flow of the time by its signal.
+
+
+

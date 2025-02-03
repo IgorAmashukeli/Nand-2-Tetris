@@ -1,0 +1,9 @@
+//if op-code is 1 => writeM = d3, else writeM = 0
+CHIP WriteM {
+    IN i, d3;
+    OUT writeM;
+
+    PARTS:
+    False(in=i, out=zero);
+    Mux(a=zero, b=d3, sel=i, out=writeM);
+}

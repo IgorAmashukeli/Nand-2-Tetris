@@ -1,0 +1,256 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */ 
+ class Memory {
+    static Array ram;
+    static Array heap;
+    static Array freeList;
+    static int heapBase, heapDataSize;
+
+
+    /** Initializes the class. */
+    function void init() {
+        let ram = null;
+        let heapBase = 2048;
+        // 16384 - is the start address of I/O part of RAM
+        // 16383 - is the last part of the heap
+        // 2048 - is the "next" register of fragment
+        // 2049 - is the "size" register of fragment
+        // 2050 - is the first part of the data in the fragment
+        // 2049 - is the last part in non-data part in the fragment
+        // => heapDataSize = 16383 - 2049 = 14334
+        let heapDataSize = 14334;
+        let heap = heapBase;
+        let freeList = heap;
+        // the only one segment is the last segment
+        let heap[0] = null;
+        // the size of this one segment is the size of the heap
+        let heap[1] = heapDataSize;
+        return;
+    }
+
+    /** Returns the RAM value at the given address. */
+    function int peek(int address) {
+        return ram[address];
+    }
+
+    /** Sets the RAM value at the given address to the given value. */
+    function void poke(int address, int value) {
+        let ram[address] = value;
+        return;
+    }
+
+    function boolean isPossible(int segmentSize, int size) {
+        // size of the segment is at least size + 2
+        return (segmentSize > (size + 1));
+    }
+
+
+    function Array getNext(Array cur) {
+        return cur[0];
+    }
+
+    function int getSize(Array cur) {
+        return cur[1];
+    }
+
+    // best-fit
+    function Array findFree(int size) {
+        var Array cur, best;
+        var int bestSize, segmentSize;
+
+        // current pointer
+        let cur = freeList;
+        // best answer, at first equals null, if there is no answer -> we return null
+        let best = null;
+        // initially minimum size equals heapDataSize + 1
+        // (we know, all fragment size < heapDataSize + 1)
+        let bestSize = heapDataSize + 1;
+
+        // (last free fragment points at null)
+        while(~(cur = null)) {
+            // find size of a fragment
+            let segmentSize = Memory.getSize(cur);
+
+            // if found segmentSize is possible
+            if (Memory.isPossible(segmentSize, size)) {
+
+                // if found segmentSize is better, we update the best answer
+                if (segmentSize < bestSize) {
+                    let best = cur;
+                    let bestSize = segmentSize;
+                }
+            }
+
+            //shift current pointer
+            let cur = Memory.getNext(cur);
+        }
+
+        //return best answer
+        return best;
+    }
+
+    function void decreaseFreeBlockSize(Array block, int size, int segmentSize) {
+        // block[1] - the RAM part, where we should place the size of this fragment
+        // the size has been decreased by (size + 2)
+        let block[1] = segmentSize - (size + 2);
+        return;
+    }
+
+    function int getAllocatedBlockAddress(Array block, int size, int segmentSize) {
+        // block + 2 - the address of the start of the data of this block
+        // block + 2 + segmentSize - the address of the start of the "next RAM" block
+        // block + 2 + segmentSize - size - the address of the found allocated block data part
+        return block + 2 + segmentSize - size;
+    }
+
+    function void rememberAllocatedSize(Array block, int size) {
+        // block - the address of the found allocated block data part
+        // block - 1 - the address of the found allocated block size register
+        // size - the size of the block
+        let block[-1] = size;
+        return;
+    }
+
+
+    /** Finds an available RAM block of the given size and returns
+     *  a reference to its base address. */
+    function int alloc(int size) {
+        if (size < 0) {
+            do Sys.error(5);
+        }
+        var Array block;
+        var int segmentSize;
+
+        // try to find big enough block
+        let block = Memory.findFree(size);
+
+        // failure
+        if (block = null) {
+
+            //try to do defragmentation
+            do Memory.deFrag();
+
+            let block = Memory.findFree(size);
+
+            if (block = null) {
+                do Sys.error(6);
+            }
+        }
+
+        // get the size of the segment
+        let segmentSize = Memory.getSize(block);
+
+        // carve the block : change the free block size  
+        do Memory.decreaseFreeBlockSize(block, size, segmentSize);
+
+        // get the address of the available block data part to return
+        let block = Memory.getAllocatedBlockAddress(block, size, segmentSize);
+
+        // remember the allocated size for deallocation
+        do Memory.rememberAllocatedSize(block, size);
+
+        return block;
+    }
+
+    function boolean startFragment(Array prev) {
+        return (prev = null);
+    }
+
+
+    function Array findPrev(Array startO) {
+        var Array prev, cur;
+        // at first prev = null
+        let prev = null;
+        // start = freeList address
+        let cur = freeList; 
+
+        // while cur < startO
+        while ((cur < startO) & (~(cur = null))) {
+            // remember previous
+            let prev = cur;
+            // shift cur
+            let cur = Memory.getNext(cur);
+        }
+        
+        // if freeList >= startO => startO <= freeList
+        // => startO should become the freeList head
+        // => we return prev (it is null)
+
+        // otherwise we return the previous fragment
+        return prev;
+    }
+
+    /** De-allocates the given object (cast as an array) by making
+     *  it available for future allocations. */
+    function void deAlloc(Array o) {
+        // ordered deallocation to support defragmentation
+
+        var Array prev, next, startO;
+        //startFragment is the o - 2
+        let startO = o - 2;
+        //we try to find previous value
+        let prev = Memory.findPrev(startO);
+
+        // if answer is null => we need to insert in head
+        if (Memory.startFragment(prev)) {
+            // next of this fragment is freeList
+            let startO[0] = freeList;
+
+            // change freeList to be startO
+            let freeList = startO;
+        } else {
+            // prev != null
+            // => we can calculate next : next can be null or something else
+
+            // calculation of next
+            let next = Memory.getNext(prev);
+
+            // now prev->next = deallocated fragment
+            let prev[0] = startO;
+
+            // deallocated fragment -> next = next
+            let startO[0] = next;
+        }
+        do Memory.deFrag();
+        return;
+    }
+
+    function boolean consecutive(Array curFrag, Array nextFrag) {
+        var int curSize;
+        let curSize = curFrag[1];
+        return ((curFrag + 2 + curSize) = nextFrag);
+    }
+
+    function void merge(Array curFrag, Array nextFrag) {
+        let curFrag[0] = nextFrag[0];
+        let curFrag[1] = curFrag[1] + 2 + nextFrag[1];
+        return;
+    }
+
+    function void deFrag() {
+        var Array curFrag, nextFrag;
+        let curFrag = freeList;
+        let nextFrag = curFrag[0];
+
+        while (~(nextFrag = null)) {
+            if (Memory.consecutive(curFrag, nextFrag)) {
+                //merging consecutive fragments
+                do Memory.merge(curFrag, nextFrag);
+            } else {
+                // if we didn't merge, we shift curFrag to nextFrag
+                let curFrag = nextFrag;
+            }
+            // shift nextFrag
+            let nextFrag = Memory.getNext(nextFrag);
+        }
+        return;
+    }
+}

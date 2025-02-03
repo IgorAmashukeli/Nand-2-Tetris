@@ -1,0 +1,231 @@
+// function SimpleFunction.test 2
+(SimpleFunction.test)
+//push zeroes
+@2
+D=A
+@nargs
+M=D
+(PUSH0)
+@nargs
+D=M
+@NOTPUSH0
+D;JEQ
+D=0
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@nargs
+M=M-1
+@PUSH0
+0; JMP
+(NOTPUSH0)
+// push local 0
+@0
+D=A
+@address
+M=D
+@LCL
+D=M
+@address
+M=M+D
+@address
+A=M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push local 1
+@1
+D=A
+@address
+M=D
+@LCL
+D=M
+@address
+M=M+D
+@address
+A=M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// add
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+M=D
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+D=D+M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// not
+@SP
+M=M-1
+@SP
+A=M
+D=M
+D=!D
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push argument 0
+@0
+D=A
+@address
+M=D
+@ARG
+D=M
+@address
+M=M+D
+@address
+A=M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// add
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+M=D
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+D=D+M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// push argument 1
+@1
+D=A
+@address
+M=D
+@ARG
+D=M
+@address
+M=M+D
+@address
+A=M
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// sub
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+M=D
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@y
+D=D-M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// return
+// save LCL in end frame variable endFrame
+@LCL
+D=M
+@endFrame
+M=D
+// save return address in variable retAddress
+@5
+D=A
+@endFrame
+D=M-D
+A=D
+D=M
+@retAddress
+M=D
+// reposition return value for the caller
+@SP
+M=M-1
+@SP
+A=M
+D=M
+@ARG
+A=M
+M=D
+// reposition SP
+@ARG
+D=M+1
+@SP
+M=D
+// recover segments
+// recover THAT
+@endFrame
+D=M-1
+A=D
+D=M
+@THAT
+M=D
+// recover THIS
+@2
+D=A
+@endFrame
+D=M-D
+A=D
+D=M
+@THIS
+M=D
+// recover ARG
+@3
+D=A
+@endFrame
+D=M-D
+A=D
+D=M
+@ARG
+M=D
+// recover LCL
+@4
+D=A
+@endFrame
+D=M-D
+A=D
+D=M
+@LCL
+M=D
+// actual return
+@retAddress
+A=M
+0;JMP

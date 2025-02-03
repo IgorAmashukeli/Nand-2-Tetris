@@ -1,0 +1,38 @@
+Let's take crystal oscilator.
+The crystal oscilator is called Clock.
+It will have this ouput signal.
+The output is called clock signal.
+As we know, crystal oscilator outputs square wave form of clock signal.
+
+
+    ____     ____     ____     ____     ____     ____     ____     ____
+   |    |   |    |   |    |   |    |   |    |   |    |   |    |   |    |
+___|    |___|    |___|    |___|    |___|    |___|    |___|    |___|    |...
+
+low high low high low high ...
+
+[   0   ][   1   ][   2   ][   3   ][   4   ][   5   ][   6   ][   7   ]...
+
+
+The high value is called "high".
+The low value is called "low".
+The edge between low and high value is called leading edge.
+The edge between high and low value is called falling edge.
+The phase from start of one "low" value to the next is called time unit.
+Now if we are going to built a gate with a simple input and a Clock, it will be called sequential.
+Now for each time unit, the input can be different.
+And the output for each time unit can be also different.
+However, there can be a delay in the voltage. Thus, leading to a delay in output.
+How to deal with this? Well, we can do it by mantaining two conditions:
+
+- we will only check the output after each unit passes
+
+- we will create the clock with such a frequency,
+ so it will have a time unit bigger than any delay in computation.
+
+ 
+
+
+
+
+

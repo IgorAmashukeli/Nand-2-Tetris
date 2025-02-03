@@ -1,0 +1,6 @@
+CHIP isRAM {
+    IN address[15], load;
+    OUT isram;
+    PARTS:
+    Not(in=address[14], out=isram);
+}

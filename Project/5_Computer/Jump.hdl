@@ -1,0 +1,57 @@
+
+/*
+Jump chip: if there are conditions to jump, according to ALU output and C instruction,
+jmp = 1, otherwise nxt = 1
+
+j1 j2 j3:
+0 0 0 -> ++
+0 0 1 if out > 0 -> jump, else ++
+0 1 0 if out = 0 -> jump, else ++
+0 1 1 if out >= 0 -> jump, else ++
+1 0 0 if out < 0 -> jump, else ++
+1 0 1 if out != 0 -> jump, else ++
+1 1 0 if out <= 0 -> jump, else ++
+1 1 1 -> jump*/
+
+
+CHIP Jump {
+    IN zr, ng, jump1, jump2, jump3;
+    OUT jmp, nxt;
+    PARTS:
+    //create grt ( > 0)
+    Not(in=ng, out=notng);
+    Not(in=zr, out=notzr);
+    And(a=notng, b=notzr, out=grt);
+
+
+    And(a=jump1, b=ng, out=ngjump);
+    And(a=jump2, b=zr, out=zrjump);
+    And(a=jump3, b=grt, out=grtjump);
+    Or(a=ngjump, b=zrjump, out=zrngjump);
+    Or(a=zrngjump, b=grtjump, out=jmp, out=notnxt);
+    Not(in=notnxt, out=nxt);
+}
+
+
+//j1 shows < 0; j2 shows == 0; j3 shows > 0
+
+//the value could be < 0 || > 0 || == 0, there are no other cases
+
+//if < 0 => if ifneg == 1 => we should jump in case of out < 0 and out != 0
+//and out <= 0 and in no other cases
+//if j1 == ifneg == 1 => we should jump
+
+//if == 0 => if ifzero == 1 => we should jump in case of out = 0 and out >= 0 and out <= 0
+//and in no other cases
+//if j2 == ifzero == 1 => we should jump
+
+//if > 0 => if ifgrt == 1 => we should jump in case of out > 0 and out >= 0 and out != 0
+//and in no other cases
+//if j3 == ifgrt == 1 => we should jump
+
+//so, if j1 == j2 == j3 = 0 => in that case we will not jump and we shouldn't
+//if j1 == j2 == j3 == 1 => in that case will anyway jump and we should
+//otherwise, it depends on value:
+//if value < 0 => if ifneg == 1, if j1 == 0 => we shouldn't jump
+//if value == 0 => if ifzero == 1, if j2 == 0 => we shouldn't jump
+//if value > 0 => if ifgrt == 1, if j3 == 0 => we shouldn't jump

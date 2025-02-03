@@ -1,0 +1,37 @@
+Silicon structure:
+
+Let's draw the structure of Silicon.
+We know that silicon has valency of 4.
+Each silicon atom has 4 valent electrons.
+
+   e
+e Si+ e
+   e
+
+Each two silicon atom neighbours share two electrons together.
+
+Positive Ions Si+ form a crystal lattice with two shared electrons in covalent connection:
+
+    |  |        |  |        |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+    e  e        e  e         e  e
+    |  |        |  |         |  |
+    |  |        |  |         |  |
+   -    --- e ---    --- e ---   -
+    Si+          Si+          Si+
+   -    --- e ---    --- e ---   -
+    |  |        |   |        |  |
+
+

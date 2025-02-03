@@ -1,0 +1,47 @@
+class BigInteger {
+    field Array arr_;
+    
+    constructor BigInteger new(Array arr) {
+        let arr_ = arr;
+        return this;
+    }
+
+    method Array getArray() {
+        return arr_;
+    }
+
+    method BigInteger plus(BigInteger other) {
+        var int i;
+        var int carry, sum;
+        var Array brr_, crr_;
+        var BigInteger sum;
+        let brr_ = other.getArray();
+        let crr_ = Array.new(20);
+        let i = 0;
+        let carry = 0;
+        while (i < 4) {
+            let sum = (arr_[i] + brr_[i]) + carry;
+            let crr_[i] = sum - ((sum / 10) * 10);
+            let carry = sum / 10;
+            let i = i + 1;
+        }
+        let sum = BigInteger.new(crr_);
+        return sum;
+    }
+
+    method void print() {
+        var int i;
+        let i = 0;
+        while(i < 4) {
+            do Output.printInt(arr_[3 - i]);
+            let i = i + 1;
+        }
+        do Output.println();
+        return;
+    }
+
+    method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+    }
+}

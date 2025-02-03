@@ -1,0 +1,48 @@
+Let's take two NAND gates and two inputs: S and R.
+Let's connect them with a feedback loop.
+
+        ___
+S  ----|   \____________ Q
+     |-|___/      |
+     |_________   |
+               |  |
+               |  |
+      _______  | _|
+     |         | 
+     |         |
+     |  ___    |
+R    |-|   \___|________ neg Q
+  -----|___/
+
+
+Let's calculate truth table for this gate.
+We will not used S = 0 and R = 0
+
+Now, let's make: S = 1, R = 0 => Cause R = 0 => second NAND gate will output 1 => neg Q = 1
+That means, that the first NAND gate has S = 1, neg Q = 1 => Q = 0
+That means, Q = 0, neg Q = 1
+
+Now, if we make S = 1, R = 1 (that is called base case):
+neg Q = 1 => S NAND neg Q = 1 NAND 1 = 0 => Q = 0
+Q = 0 => R NAND Q = 1 (0 NAND 0 = 1) => neg Q = 1
+That means the result hasn't changed.
+
+Now, let's make: S = 0, R = 1 => Cause S = 0 => first NAND gate will output 1 => Q = 1
+That means, the second NAND gate has S = 0, Q = 1 => neg Q = R NAND Q = 1 NAND 1 = 0
+That means, Q = 1, neg Q = 0
+
+Now, if we make S = 1, R = 1:
+neg Q = 0 => S NAND neg Q = 1 NAND 0 = 1 => Q = 1
+Q = 1 => R NAND Q = 0 (1 NAND 1 = 0) => neg Q = 0
+That means the result hasn't changed.
+
+That means, we have such truth table
+
+S   R | Q  neg Q
+0   0 | //NOT used
+0   1 | 1   0
+1   0 | 0   1
+1   1 | previous values, if changed from (0 1 or 1 0)
+
+We created our first SR Latch, it can "remember",
+where to have 1, if we mechanically change the S R input to "1 1"

@@ -1,0 +1,16 @@
+Properties:
+
+1) Boron is from the third (3) periodic group
+2) Silicon is from the fourth(4) perioid group
+3) Phosphorus is from the fifth(5) period group
+
+
+1) Third periodic group has elements with valency of 3
+2) Fourth periodic group has elements with valency of 4
+3) Fifth periodic group has elements with valency of 5
+
+
+1) That means that Boron has valency of 3
+2) That means that Silicon has valency of 4
+3) That means that Phosphorus has valency of 5
+

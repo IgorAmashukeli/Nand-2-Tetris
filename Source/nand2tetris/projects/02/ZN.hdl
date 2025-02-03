@@ -1,0 +1,11 @@
+//makes zero or negates the input
+CHIP ZN {
+    IN in[16], zin, nin;
+    OUT out[16];
+    PARTS:
+    Zero(in=in, out=zero);
+    Mux16(a=in, b=zero, sel=zin, out=zinres);
+
+    Not16(in=zinres, out=notzinres);
+    Mux16(a=zinres, b=notzinres, sel=nin, out=out);
+}

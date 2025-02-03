@@ -1,0 +1,1 @@
+Let's take 16 bit register and call it Aregister. It will hold address.

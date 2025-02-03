@@ -1,0 +1,373 @@
+function Memory.init 0
+push constant 0
+pop static 0
+push constant 2048
+pop static 3
+push constant 14334
+pop static 4
+push static 3
+pop static 1
+push static 1
+pop static 2
+push static 1
+push constant 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push static 1
+push constant 1
+add
+push static 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Memory.peek 0
+push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Memory.poke 0
+push static 0
+push argument 0
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Memory.isPossible 0
+push argument 0
+push argument 1
+push constant 1
+add
+gt
+return
+function Memory.getNext 0
+push argument 0
+push constant 0
+add
+pop pointer 1
+push that 0
+return
+function Memory.getSize 0
+push argument 0
+push constant 1
+add
+pop pointer 1
+push that 0
+return
+function Memory.findFree 4
+push static 2
+pop local 0
+push constant 0
+pop local 1
+push static 4
+push constant 1
+add
+pop local 2
+label WHILE1_0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE2_0
+push local 0
+call Memory.getSize 1
+pop local 3
+push local 3
+push argument 0
+call Memory.isPossible 2
+not
+if-goto IF1_1
+push local 3
+push local 2
+lt
+not
+if-goto IF1_2
+push local 0
+pop local 1
+push local 3
+pop local 2
+goto IF2_2
+label IF1_2
+label IF2_2
+goto IF2_1
+label IF1_1
+label IF2_1
+push local 0
+call Memory.getNext 1
+pop local 0
+goto WHILE1_0
+label WHILE2_0
+push local 1
+return
+function Memory.decreaseFreeBlockSize 0
+push argument 0
+push constant 1
+add
+push argument 2
+push argument 1
+push constant 2
+add
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Memory.getAllocatedBlockAddress 0
+push argument 0
+push constant 2
+add
+push argument 2
+add
+push argument 1
+sub
+return
+function Memory.rememberAllocatedSize 0
+push argument 0
+push constant 1
+neg
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Memory.alloc 2
+push argument 0
+push constant 0
+lt
+not
+if-goto IF1_0
+push constant 5
+call Sys.error 1
+pop temp 0
+goto IF2_0
+label IF1_0
+label IF2_0
+push argument 0
+call Memory.findFree 1
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto IF1_1
+call Memory.deFrag 0
+pop temp 0
+push argument 0
+call Memory.findFree 1
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto IF1_2
+push constant 6
+call Sys.error 1
+pop temp 0
+goto IF2_2
+label IF1_2
+label IF2_2
+goto IF2_1
+label IF1_1
+label IF2_1
+push local 0
+call Memory.getSize 1
+pop local 1
+push local 0
+push argument 0
+push local 1
+call Memory.decreaseFreeBlockSize 3
+pop temp 0
+push local 0
+push argument 0
+push local 1
+call Memory.getAllocatedBlockAddress 3
+pop local 0
+push local 0
+push argument 0
+call Memory.rememberAllocatedSize 2
+pop temp 0
+push local 0
+return
+function Memory.startFragment 0
+push argument 0
+push constant 0
+eq
+return
+function Memory.findPrev 2
+push constant 0
+pop local 0
+push static 2
+pop local 1
+label WHILE1_0
+push local 1
+push argument 0
+lt
+push local 1
+push constant 0
+eq
+not
+and
+not
+if-goto WHILE2_0
+push local 1
+pop local 0
+push local 1
+call Memory.getNext 1
+pop local 1
+goto WHILE1_0
+label WHILE2_0
+push local 0
+return
+function Memory.deAlloc 3
+push argument 0
+push constant 2
+sub
+pop local 2
+push local 2
+call Memory.findPrev 1
+pop local 0
+push local 0
+call Memory.startFragment 1
+not
+if-goto IF1_0
+push local 2
+push constant 0
+add
+push static 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+pop static 2
+goto IF2_0
+label IF1_0
+push local 0
+call Memory.getNext 1
+pop local 1
+push local 0
+push constant 0
+add
+push local 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+push constant 0
+add
+push local 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF2_0
+call Memory.deFrag 0
+pop temp 0
+push constant 0
+return
+function Memory.consecutive 1
+push argument 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 0
+push constant 2
+add
+push local 0
+add
+push argument 1
+eq
+return
+function Memory.merge 0
+push argument 0
+push constant 0
+add
+push argument 1
+push constant 0
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 0
+push constant 1
+add
+push argument 0
+push constant 1
+add
+pop pointer 1
+push that 0
+push constant 2
+add
+push argument 1
+push constant 1
+add
+pop pointer 1
+push that 0
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Memory.deFrag 2
+push static 2
+pop local 0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 1
+label WHILE1_0
+push local 1
+push constant 0
+eq
+not
+not
+if-goto WHILE2_0
+push local 0
+push local 1
+call Memory.consecutive 2
+not
+if-goto IF1_1
+push local 0
+push local 1
+call Memory.merge 2
+pop temp 0
+goto IF2_1
+label IF1_1
+push local 1
+pop local 0
+label IF2_1
+push local 1
+call Memory.getNext 1
+pop local 1
+goto WHILE1_0
+label WHILE2_0
+push constant 0
+return

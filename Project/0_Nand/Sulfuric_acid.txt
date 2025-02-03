@@ -1,0 +1,21 @@
+Sulfuric acid:
+
+1) Extract sulfur from sulfide minerals:
+
+S
+
+2) Exctract oxygen from air:
+
+O_2
+
+3) Create sulfur dioxide:
+
+S + O_2 -> S - O_2
+
+4) Create sulfur trioxide:
+
+2 S - O_2 + O_2 -> 2 S - O_3
+
+5) Create sulfuric acid:
+
+S - O_3 + H_2 - O -> H_2 - S - O_4

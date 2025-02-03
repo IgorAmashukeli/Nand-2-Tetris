@@ -1,0 +1,261 @@
+PMOS
+
+
+1) let's take a N-semiconductor and insert two parts of P-semiconductors.
+They will create depletion regions around N-semiconductors:
+
+
+
+    |-------------------|---|----------------|---|------------------|
+    |                   |   |                |   |                  |
+    |      P type       |   |                |   |     P type       |
+    |                   |   |                |   |                  |
+    |                   |   |                |   |                  |
+    ---------------------   |                |   --------------------                         
+    |      region           |                |       region         |
+    |-----------------------|                |----------------------|
+    |                                                               |
+    |                          N type                               |
+    |                                                               |
+    |                                                               |
+    |                                                               |
+    |                                                               |
+    |                                                               |
+    -----------------------------------------------------------------
+
+
+2)Let's connect N type to "Substrate/Body" wire terminal
+Let's connect left P-semiconductor to "Source" terminal.
+Let's connect right P-semiconductor "Drain" terminal,
+Between those terminal let's put a thin layer of insulator (dielectric, for example, silicon dioxide)
+Above this terminal another terminal is attached. It is called "Gate" terminal.
+Let's connect "Substrate" and "Source" terminal to some voltage power supply.
+
+
+
+ ----------------------
+        |                    |
+        |                    |
+        |                    |
+        |                    |                   |
+        |                    |                 Gate                   |
+        |                Source             dielectric              Drain
+        |        |-------------------|---|----------------|---|------------------|
+        |        |                   |   |                |   |                  |
+        |        |      P type       |   |                |   |     P type       |
+        |        |                   |   |                |   |                  |
+        |        |                   |   |                |   |                  |
+        |        ---------------------   |                |   --------------------                         
+        |        |      region           |                |       region         |
+        |        |-----------------------|                |----------------------|
+        |        |                                                               |
+        |        |                          N type                               |
+        |        |                                                               |
+        |        |                                                               |
+        |        |                                                               |
+        |        |                                                               |
+        |        |                                                               |
+        |        -----------------------------------------------------------------
+        |                                      Body
+        |                                       |
+        |----------------------------------------
+        |
+        |
+        v    voltage power supply
+            
+
+3) Let's connect a battery (big voltage) between "Drain" and "Source"
+
+
+
+
+
+
+
+                                     /-------------["-" battery "+"]-------
+                                    /                                     |
+                                   /                                      |
+            ----------------------/                                       |
+            |                    |                                        |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                 Gate                   |
+            |                Source             dielectric              Drain
+            |        |-------------------|---|----------------|---|------------------|
+            |        |                   |   |                |   |                  |
+            |        |      P type       |   |                |   |     P type       |
+            |        |                   |   |                |   |                  |
+            |        |                   |   |                |   |                  |
+            |        ---------------------   |                |   --------------------                         
+            |        |      region           |                |       region         |
+            |        |-----------------------|                |----------------------|
+            |        |                                                               |
+            |        |                          N type                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        -----------------------------------------------------------------
+            |                                      Body
+            |                                       |
+            |----------------------------------------
+            |
+            |
+            v    voltage power supply
+
+
+4) But now only depletion region near drain will increase. 
+Cause there is no connection between two P type semiconductors, there will be no flow in the circuit
+
+
+5) Let's create a big (the same as for Drain) voltage source between Gate and Substrate/Source with a battery
+The voltage is the same => the difference in potentials in Gate is 0
+
+
+
+
+
+
+
+                                     /-------------["-" battery "+"]-------
+                                    /                                     |
+                                   / \                                    |
+            ----------------------/   ["-" bat. "+"]                      |
+            |                    |                  \                     |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                 Gate                   |
+            |                Source             dielectric              Drain
+            |        |-------------------|---|----------------|---|------------------|
+            |        |                   |   |                |   |                  |
+            |        |      P type       |   |                |   |     P type       |
+            |        |                   |   |                |   |                  |
+            |        |                   |   |                |   |                  |
+            |        ---------------------   |                |   --------------------                         
+            |        |      region           |                |       region         |
+            |        |-----------------------|                |----------------------|
+            |        |                                                               |
+            |        |                          N type                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        -----------------------------------------------------------------
+            |                                      Body
+            |                                       |
+            |----------------------------------------
+            |
+            |
+            v  voltage power supply
+    
+            
+
+6) Now, let's turn off the Gate battery.
+Now, the potential difference to the Drain will be negative
+
+In N type despite a lot of free electrones, exists few holes (for example, because of not normal temperature)
+bat. creates an electric field. Therefore, few holes in P type flew towards the negative gate.
+There is an insulator. Therefore, those holes can't flow to the "Gate" and accumulate near the "Gate".
+Electrones flow to the bottom of the P type semiconductor.
+Due to electrons and absence of holes the region under dielectric becomes P type semiconductor.
+
+
+
+
+
+
+                                     /-------------["-" battery "+"]-------
+                                    /                                     |
+                                   / \                                    |
+            ----------------------/   ["-" bat. "+"]                      |
+            |                    |                  \                     |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                 Gate                   |
+            |                Source             "-" "-" "-"              Drain
+            |                                   dielectric                         
+            |        |-------------------|---|----------------|---|------------------|
+            |        |                   |   |  h h h h h h   |   |                  |
+            |        |      P type       |   |                |   |     P type       |
+            |        |                   |   |                |   |                  |
+            |        |                   |   |                |   |                  |
+            |        ---------------------   |                |   --------------------                         
+            |        |      region           |                |       region         |
+            |        |-----------------------|                |----------------------|
+            |        |                                                               |
+            |        |                          N type                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        -----------------------------------------------------------------
+            |                                      Body
+            |                                       |
+            |----------------------------------------
+            |
+            |
+            v  voltage power supply
+          
+
+
+
+
+
+                                     /-------------["-" battery "+"]-------
+                                    /                                     |
+                                   / \                                    |
+            ----------------------/   ["-" bat. "+"]                      |
+            |                    |                  \                     |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                   |                    |
+            |                    |                 Gate                   |
+            |                Source             "-" "-" "-"              Drain
+            |                                   dielectric                         
+            |        |-------------------|---|----------------|---|------------------|
+            |        |                                                               |
+            |        |      P type       |------------------------|       P type     |
+            |        |                   |   |----------------|   |                  |
+            |        |                   |   |                |   |                  |
+            |        ---------------------   |                |   --------------------                         
+            |        |      region           |                |       region         |
+            |        |-----------------------|                |----------------------|
+            |        |                                                               |
+            |        |                          N type                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        |                                                               |
+            |        -----------------------------------------------------------------
+            |                                      Body
+            |                                       |
+            |----------------------------------------
+            |
+            |
+         -  v  voltage
+               
+9) Now there is a pipe between the source and the drain and holes can flow from the drain to the source by wire
+and from drain to source inside the P semiconductor created pipe.
+The thickness of the channel is, of cause, controlled by changing "Gate" voltage.
+
+
+10) P.S at some time the depletion region between Drain and Substrate will increase.
+The channel pipe begins to deplete at the end before Drain, decreasing width of the channel at the end,
+decreasing flow, and there will be a moment it could be closed.
+But in real case scenarious holes will make sure it is somewhat open.
+Then decreasing Drain voltage will not increase flow. To decrease it we need to increase width.
+We will decrease Gate voltage -> increase width of a pipe and then decrease voltage of Drain.
+Then we can repeat this process.
+
+
+11) We created our first PMOS transistor
+
+If we have zero flows in gate, we have flow from Drain to Source in wire
+If we have a flow in gate, we have zeor flows from Drain to source in wire

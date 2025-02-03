@@ -1,0 +1,8 @@
+//wire: out = in
+CHIP Wire {
+    IN in;
+    OUT out;
+    PARTS:
+    True(a=in, out=one)
+    And(a=in, b=one, out=out);
+}

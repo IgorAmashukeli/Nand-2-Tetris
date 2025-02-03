@@ -1,0 +1,6 @@
+CHIP isKeyboard {
+    IN address[15];
+    OUT iskeyboard;
+    PARTS:
+    And(a=address[14], b=address[13], out=iskeyboard);
+}

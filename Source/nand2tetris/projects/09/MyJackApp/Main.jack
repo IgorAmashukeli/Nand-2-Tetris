@@ -1,0 +1,21 @@
+class Main {
+    function void main() {
+        var Array i, arr, brr;
+        var BigInteger a, b, c;
+        let arr = Array.new(20);
+        let brr = Array.new(20);
+        let arr[0] = 7;
+        let arr[1] = 3;
+        let arr[2] = 9; 
+        let brr[0] = 5;
+        let brr[1] = 7;
+        let brr[2] = 8;
+    
+        let a = BigInteger.new(arr);
+        let b = BigInteger.new(brr);
+        
+        let c = a.plus(b);
+        do c.print();
+        return;
+    }
+}

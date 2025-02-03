@@ -1,0 +1,9 @@
+//if op-code is 0 => we don't load the D register
+//if op-code is 1 => we load the D register
+// - it is value of C instruction output - the destination <=> d2
+CHIP Dload {
+    IN i, d2;
+    OUT dload;
+    PARTS:
+    And(a=i, b=d2, out=dload);
+}

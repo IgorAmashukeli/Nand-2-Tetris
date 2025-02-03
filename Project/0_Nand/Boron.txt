@@ -1,0 +1,14 @@
+Boron:
+
+1) Extract borax from evaporite: 
+
+Na_2 - H_20 - B_4 - O_17
+
+2) Take sulfuric acid H_2 - S - O_4
+
+7s) Create boron
+
+2Na_2 - H_20 - B_4 - O_17 + 11H_2 - S - O_4 -> 4B + 22H_2 - O + 2 Na_2 - S - O_4
+
+We created our first Boron!
+

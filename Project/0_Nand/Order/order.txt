@@ -1,0 +1,15 @@
+0) Natural resources
+1) Sulfuric acid
+2) Cu
+3) Zn
+4) Si
+5) Phosphorus
+6) Boron
+7) Electricity
+8) Si B properties
+9) Si structure
+10) Semiconductors
+11) P-N junction
+12) NMOS
+13) PMOS
+14) Nand 

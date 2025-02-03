@@ -1,0 +1,62 @@
+Some simple electric elements, you should know how to create and why they work          
+                       _____
+1) Simple resistor ---|_____|----
+
+This is a resistor.
+The resistance of the resistor is determined by its material and geometry.
+When an electric current flows through a resistor, energy is dissipated in the form of heat.
+This is due to the collision of free electrons in the resistor material with its atoms.
+Thus, the resistor restricts or "resists" the flow of current. We can make it from C, for example.
+
+2) Simple capacitor.        | |
+                         ---| |---
+                            | |
+The simplest type of capacitor is a plane-parallel capacitor.
+It consists of two flat metal plates arranged parallel to each other, and a dielectric between them.
+Usually the dielectric is air, oil, paper, ceramics, plastic or other materials with high insulation.
+
+
+Charging the capacitor:
+When the voltage is applied to the capacitor, the electrons begin to move from one plate to another through the dielectric.
+Positive electrons move to one plate, and negative electrons move to another.
+As a result, one of the plates acquires a positive charge, and the other - a negative one.
+This creates an electric field between the plates.
+
+Saving charge and voltage:
+When the charging process is completed and the capacitor is fully charged, the charge remains on its plates, and a potential difference (voltage) is maintained between them.
+While the conductive plates have the same charge amplitude, but different signs (one positive, the other negative), the dielectric between them blocks direct electric current.
+
+Capacitor discharge:
+When the voltage source is disconnected or its polarity is reversed, the capacitor may discharge.
+Now the potential difference between the plates causes the electrons to move in the opposite direction - from a plate with a negative charge to a plate with a positive charge.
+This leads to a decrease in the voltage on the capacitor.
+
+
+However, for alternating signal:
+
+Alternating current (AC) in a capacitor works differently compared to direct current (DC).
+The reason for this lies in the specific properties of the capacitor and its interaction with an alternating electric field.
+
+When alternating current flows through a capacitor, its direction changes periodically in time.
+This means that the charge moves in both directions between the capacitor plates with each alternating current period.
+It is important to understand that when switching the current direction, the capacitor does not act as it does on a direct current when it is charged and discharged by a unidirectional flow of electrons.
+
+The operation of alternating current in the capacitor occurs in accordance with two main processes:
+
+Charging and discharging the capacitor:
+When the alternating current changes direction, the capacitor is charged and discharged with each current cycle.
+At the beginning of each positive half-cycle of the current, the charge is collected on one plate of the capacitor, and the charge of the opposite sign is collected on the other plate.
+When the current direction changes to negative, the charge moves in the opposite direction, and the capacitor is discharged.
+Thus, the capacitor stabilizes the voltage in accordance with the frequency of the alternating current.
+
+Reactive element:
+A capacitor is a reactive element in an electrical circuit.
+Reactivity in alternating current is caused by phase shifts between voltage and current in the capacitor.
+Unlike DC resistance, reactive elements such as capacitors do not dissipate active power.
+They create a reactance (reactant) and play an important role in controlling the active power in the circuit.
+
+As a result of the application of alternating current in the capacitor, periodic charging and discharging occurs, and the capacitor behaves like an element that "moves" the charge depending on the direction of the alternating current.
+This phenomenon is widely used in many devices and circuits in electronics and electrical engineering.
+
+
+4) Not (inverter) we already created.

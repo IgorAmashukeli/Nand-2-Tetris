@@ -1,0 +1,8 @@
+CHIP CalculateJumps {
+    IN j1, j2, j3, i;
+    OUT jump1, jump2, jump3;
+    PARTS:
+    And(a=j1, b=i, out=jump1);
+    And(a=j2, b=i, out=jump2);
+    And(a=j3, b=i, out=jump3);
+}

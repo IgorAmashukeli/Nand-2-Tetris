@@ -1,0 +1,7 @@
+Phosphorus:
+
+1) Coking of coal: creation of coke (C)
+
+2) Extract phosphorus from Fluorapatite (Ca_5 - (P - O_4)_3 - F):
+
+4 Ca_5 - (P - O4)_3 - F + 18 Si - O_2 + 30 C -> 3 P_4 + 30 C - O + 18 Ca - Si - O_3 + 2 Ca - F_2

@@ -1,0 +1,30 @@
+Let's take quartz Si - O_2.
+Let's take some methal.
+Let's create Quartz crystal element.
+
+
+      _
+   | | | |
+---| | | |---
+   | |_| |
+
+
+As you can learn, a simple LC
+circuit can be used for generation of a signal.
+
+But, the attenuation of oscillations is very high.
+Therefore, it is very unstable to use this LC circuit to generate any oscillations.
+
+Quartz crystal is piezo-electric.
+That means, quartz can convert mechanical vibrations to voltage and voltage to mechanical vibration.
+That means, that quartz can be used as oscillation circuit (almoust like LC).
+
+Moreover, quartz has exceptionally high Q (which is inversely proportional to the
+ rate of attenuation of natural oscillations in the system. 
+That is, the higher the Q-factor of the oscillatory system,
+ the less energy loss for each period and the slower the oscillations fade).
+
+ However, we can't generate the oscillations just using the Quartz crystal,
+  cause there will be attenuations.
+
+

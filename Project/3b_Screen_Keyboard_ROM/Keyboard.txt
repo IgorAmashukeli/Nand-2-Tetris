@@ -1,0 +1,112 @@
+Let's take a simple 16 register.
+
+It has "in" value, "out" value and "load" bit.
+If "load" == 1 then register out[t + 1] = in[t].
+If "load" == 0 then register out[t + 1] = in[t].
+
+We can connect the "in" button to the keyboard.
+Each keyboard will have it's own bit's loaded and unloaded.
+It is just reorganisation of input bits:
+
+There is a table of all keyboard values:
+
+
+0 -> no keyboard is pressed
+32 -> space is pressed
+33 -> !
+34 -> "
+35 -> #
+36 -> $
+37 -> %
+38 -> &
+39 -> '
+40 -> (
+41 -> )
+42 -> *
+43 -> +
+44 -> ,
+45 -> -
+46 -> .
+47 -> /
+48 -> 0
+49 -> 1
+50 -> 2
+51 -> 3
+52 -> 4
+53 -> 5
+54 -> 6
+55 -> 7
+56 -> 8
+57 -> 9
+58 -> :
+59 -> ;
+60 -> <
+61 -> =
+62 -> >
+63 -> ?
+64 -> @
+65 -> A
+66 -> B
+67 -> C
+68 -> D
+69 -> E
+70 -> F
+71 -> G
+72 -> H
+73 -> I
+74 -> J
+75 -> K
+76 -> L
+77 -> M
+78 -> N
+79 -> O
+80 -> P
+81 -> Q
+82 -> R
+83 -> S
+84 -> T
+85 -> U
+86 -> V
+87 -> W
+88 -> X
+89 -> Y
+90 -> Z
+91 -> [
+92 -> /
+93 -> ]
+94 -> ^
+95 -> _
+128 -> newline
+129 -> backspace
+130 -> left arrow
+131 -> up arrow
+132 -> right arrow
+133 -> down arrow
+134 -> home
+135 -> end
+136 -> Page up
+137 -> Page down
+138 -> insert
+139 -> delete
+140 -> esc
+141 -> f1
+142 -> f2
+143 -> f3
+144 -> f4
+145 -> f5
+146 -> f6
+147 -> f7
+148 -> f8
+149 -> f9
+150 -> f10
+151 -> f11
+152 -> f12
+
+We take a symbol, find it's code here, take the 16 bin binary representation.
+Each button should be connect to 16 inputs to the register chip.
+Each button should close gates (create flow) in the "1s" of binary representation of a symbol.
+We created a keyboard memory.
+
+
+
+

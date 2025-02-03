@@ -1,0 +1,20 @@
+Let's take read-obly (load = zero) RAM32K:
+
+CHIP RAM32K {
+    IN in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+    False(in=load, out=zero);
+    RAM16K(in=in, load=zero, address=address[0..13], out=out1);
+    RAM16K(in=in, load=zero, address=address[0..13], out=out2);
+    Mux(a=out1, b=out2, sel=address[14], out=out);
+}
+
+Let's take the program writen in machine code
+(< 32K lines of code, each line is 16 bit word, each word is 1/0 flow, 
+each one is of this bits is controlled by a mechanical gate,
+At first each gate is open (no flow in all lines)
+each gate is manipulated mannually, according to machine code (if 1, we close, else open)
+).
+We create ROM32K memory for program text.

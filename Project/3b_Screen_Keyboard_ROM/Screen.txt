@@ -1,0 +1,17 @@
+Let's take ROM8K:
+
+CHIP RAM8K {
+    IN in[16], load, address[13];
+    OUT out[16];
+
+    PARTS:
+    DMux(in=load, sel=address[12], a=load1, b=load2, c=load3, d=load4);
+    RAM4K(in=in, load=load1, address=address[0..11], out=out1);
+    RAM4K(in=in, load=load2, address=address[0..11], out=out2);
+    Mux(a=out1, b=out2, c=out3, d=out4, sel=address[12], out=out);
+}
+
+Let's create a screen of pixels (lamp - off/on) with 255 rows and 511 columns
+It is just reorganisation of outputs
+Let's take 32 * row + column / 16 output in RAM8K and show it in (row, column) sell.
+We created a screen memory.

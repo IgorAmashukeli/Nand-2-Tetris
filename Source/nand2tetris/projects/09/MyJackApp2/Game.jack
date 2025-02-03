@@ -1,0 +1,25 @@
+class Game {
+    field People people_;
+    constructor Game new() {
+        var int i;
+        let i = 0;
+        let people_ = People.new(i);
+        
+        while(i < 30) {
+            if (~(Keyboard.keyPressed() = 0)) {
+                return this;
+            }
+            do people_.draw();
+            do Sys.wait(1000);
+            let i = i + 1;
+            do people_.erase();
+            do people_.setLocation(i);
+        }
+        return this;
+    }
+
+    method void dispose() {
+        do people_.dispose();
+        return;
+    }
+}

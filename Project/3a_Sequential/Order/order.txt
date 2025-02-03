@@ -1,0 +1,8 @@
+1) Bit.hdl
+2) Register.hdl
+3) RAM8.hdl
+4) RAM64.hdl
+5) RAM512.hdl
+6) RAM4K.hdl
+7) RAM16K.hdl
+8) PC.hdl

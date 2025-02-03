@@ -1,0 +1,93 @@
+Let's take SR flip Flop
+Let's take Not gate
+
+Let's create this circuit.
+It has one input and one output
+We removed neg Q, and we connected D to the second NAND gate
+
+
+
+    D         ___  S*     ___
+-------------|   \ ------|   \____________ Q
+  |       |--|___/     |-|___/      |
+  __      |            |_________   |
+  \/      |                      |  |
+  |       |                      |  |
+  | CLK---|             _______  | _|
+  |       |            |         | 
+  |       |            |         |
+  |       |            |  ___    |
+  |       |   ___  Q*  |-|   \___|
+  |       |--|   \ ----- |___/
+  |----------|___/
+
+
+Let's take truth table from SR flip flop:
+
+
+CLK S   R | Q  neg Q
+0   x   x | previous values, when S was not equal to R and CLK was 1
+1   0   0 | previous values, when S was not equal to R and CLK was 1
+1   0   1 | 0   1
+1   1   0 | 1   0
+1   1   1 | previous values, when S was not equal to R and CLK was 1
+
+Now, we can get rid of neg Q:
+
+
+CLK S   R | Q
+0   x   x | previous value, when S was not equal to R and CLK was 1
+1   0   0 | previous value, when S was not equal to R and CLK was 1
+1   0   1 | 0
+1   1   0 | 1
+1   1   1 | previous value, when S was not equal to R and CLK was 1
+
+R will be always complementory
+So, we remove "0 0" and "1 1" lines for S and remove
+
+CLK S   R | Q
+0   x   x | previous value, when S was not equal to R and CLK was 1 
+1   0   1 | 0
+1   1   0 | 1
+
+As we can see, if CLK was 1, S was not equal to R => we can modify it
+
+CLK S   R | Q
+0   x   x | previous value, when CLK was 1 
+1   0   1 | 0
+1   1   0 | 1
+
+Now, let's rename S to D, and get rid of R, cause it is not an input
+
+CLK D | Q
+0   x | previous value,  when CLK was 1 
+1   0 | 0
+1   1 | 1
+
+Using Q_{i} and Q_{t + 1}, we conclude, that is actually t, the previous unit of time of course had CLK = 1
+(Now we don't have additional condition about S != R => i is now exactly t)
+
+CLK   D | Q_{t + 1}
+0     x | Q_{t}
+1     0 | 0
+1     1 | 1
+
+
+Now let's create characteristic table:
+(CLK = 1)
+
+Q_{t} D | Q_{t + 1}
+0     0    0
+0     1    1
+1     0    0
+1     1    1
+
+
+That means, Q_{t + 1} = D
+And, as we know, D is t'th input.
+Therefore, Output_{t + 1} = Input_{t}
+That is how the data flip flop chip is working
+
+
+
+

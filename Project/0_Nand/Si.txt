@@ -1,0 +1,15 @@
+Silicon:
+
+1) Coking of coal: creation of coke (C)
+
+2) Сarbothermal reduction of quartz(sand) silicon dioxide (SiO2):
+
+Si - O_2 + 2 C -> Si + 2 C - O
+
+We created our first Silicon!
+
+
+
+
+
+

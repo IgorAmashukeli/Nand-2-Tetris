@@ -1,0 +1,61 @@
+P-N junction:
+
+1)  Let's build P-semiconductor and N-semiconductor from previous chapter.
+
+
+2)  N-semiconductor has redundant free electrones "e".
+    P-semiconductor has redundant free holes "h".
+
+    P-semiconductor          N-semiconductor
+[Si h Si h ... Si h Si h Si ][ Si e Si e Si ... e Si e Si]
+
+
+3) Now let's connect those two semiconductors.
+
+
+Free electrons from N-semiconductor will fit the places of holes in P-semiconductor.
+But, not all electrons are able to reach far holes.
+Therefore, after filling the nearest holes there creates a region between them:
+
+[Si h Si ... h Si h ][Si Si Si Si][e Si e ... e Si e Si]
+
+It is called depletion region
+
+4) Now let's add electric field to the electric circuit:
+
+"+" to N-semiconductor
+"-" to P-semiconductor
+
+"-"[Si h Si ... h Si h ][Si Si Si Si][e Si e ... e Si e Si]"+"
+
+Now 
+- in P-semiconductor electrons will move to the right
+- in N-semiconductor electrons will move to the right -> holes will move to the left
+
+The region will grow:
+
+"-"[Si h h ... h Si][Si Si Si Si Si Si][ Si e... e e Si]"+"
+
+5) Now let's add flow in another direction:
+
+"+" to P-semiconductor
+"-" to N-semiconductor
+
+"+"[Si h Si ... h Si h ][Si Si Si Si][e Si e ... e Si e Si]"-"
+
+Now
+- in P-semiconductor electrons will move to the left
+- in N-semiconductor electrons will move to the left -> holes will move to the right
+
+The region will shrink
+
+"+"[Si Si ... h Si h h][Si][e e e ... e Si e Si]"-"
+
+and electrones will flow left to the right, then they will enter circuit,
+go full circle and enter from the right
+
+6) We create p-n junction flow from electric field 
+(which can be from an electric flow).
+
+That means we know, how to create one flow if and only if there is another flow!
+

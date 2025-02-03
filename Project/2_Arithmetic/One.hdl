@@ -1,0 +1,11 @@
+//constant 1
+CHIP One {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    MinusOne(in=in, out=minusone);
+    Add16(a=minusone, b=minusone, out=minustwo);
+    Not16(in=minustwo, out=out);
+
+}
