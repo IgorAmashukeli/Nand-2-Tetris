@@ -1,6 +1,6 @@
 # Nand2Tetris
 1) Here is the link, where you will find all the problems, solved here: [Nand2Tetris official webpage](https://www.nand2tetris.org/)
-2) Some of the key parts:
+2) Some of the key solutions:
 
 [CPU](https://github.com/IgorAmashukeli/Nand-2-Tetris/blob/main/Source/nand2tetris/projects/05/CPU.hdl)
 
